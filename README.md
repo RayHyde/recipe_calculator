@@ -1,4 +1,4 @@
-<h3 color="tomato">Recipe Calculator</h3>
+<h3 style="color: tomato">Recipe Calculator</h3>
 
 <p>This handy calculator recalculates your recipe to a new size of cake tin or other number of persons. <br><br>
 
