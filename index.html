@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+
+<!--[if lt IE 7 ]>				<html lang="en" class="ie6">						<![endif]-->
+<!--[if IE 7 ]>						<html lang="en" class="ie7">						<![endif]-->
+<!--[if IE 8 ]>						<html lang="en" class="ie8">						<![endif]-->
+<!--[if IE 9 ]>						<html lang="en" class="ie9">						<![endif]-->
+<!--[if lt IE 9]>					<script src="js/html5shiv.js"></script>	<![endif]-->
+<!--[if (gt IE 9)|!(IE)]>	<html lang="en"> 															<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Language" content="en" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Recipe calculator</title>
+	<meta name="description" content="This handy calculator recalculates your recipe to a new size of cake tin or other number of persons">
+	<meta name="keywords" content="jquery, css, bootstrap, recipe, recalculate recipes, recalculate">
+	<meta name="author" content="Ray Hyde | www.rayhyde.nl">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="shortcut icon" href="images/favicon.png"> -->
+	<!--[if (lte IE 9)|!(IE)]><link rel="icon" href="favicon.ico"><![endif]-->
+	<link href='https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:500italic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript">
+		var Destination = new Array();
+
+		//	Destination["en-gb"] = "";
+		Destination["nl"] = "index-nl.html";
+		var DefaultDestination = "";
+
+		var lang = navigator.language ? navigator.language :
+			navigator.browserlanguage ? navigator.browserlanguage :
+			navigator.systemLanguage ? navigator.systemLanguage :
+			navigator.userLanguage ? navigator.userLanguage :
+			'---';
+		lang = lang.toLowerCase();
+		var dest = new String();
+		for (var t in Destination) {
+			if (t == lang) {
+				dest = Destination[t];
+				break;
+			}
+		}
+		if (dest.length == 0) {
+			lang = lang.substr(0, 2);
+			for (var t in Destination) {
+				if (t == lang) {
+					dest = Destination[t];
+					break;
+				}
+			}
+		}
+		if (dest.length == 0) {
+			dest = DefaultDestination;
+		}
+		if (dest.length > 0) {
+			location.href = dest;
+		}
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>Recipe Calculator</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<form action="">
+					<div class="form-group well" id="ingredients">
+						<h2><div class="number">1</div>First, enter your ingredients</h2>
+						<ul>
+							<li>
+								<div class="row">
+									<div class="col-xs-2">
+										<label class="qty-head">Qty.</label>
+									</div>
+									<div class="col-xs-2">
+										<label class="type-head">Type</label>
+									</div>
+									<div class="col-xs-7">
+										<label class="desc-head">Description</label>
+									</div>
+									<div class="col-xs-1"></div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-xs-2">
+										<input type="text" name="qty" class="qty" id="qty-0" placeholder="qty">
+									</div>
+									<div class="col-xs-2">
+										<input type="text" name="type" class="type" id="type-0" placeholder="E.g. gr">
+									</div>
+									<div class="col-xs-7">
+										<input type="text" name="desc" class="desc" id="desc-0" placeholder="E.g. flour">
+									</div>
+									<div class="col-xs-1">
+										<button class="btn btn-default btn-sm del" alt="Delete this ingredient" title="Delete this ingredient"><span class="glyphicon glyphicon-remove"></span></button>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="button-group">
+							<button id="add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add ingredient</button>
+						</div>
+					</div>
+					<div id="cruncher">
+						<div class="form-group well">
+						<h2><div class="number">2</div>Then, tell me the original serving size of the recipe</h2>
+						<p>You put something in here like "20" and "cm" for a cake tin, or "4" and "persons". This is for your own reassurance only, for whatever it is, ml, oz, cups, gr.: I don't care, as long I have a number to crunch on.</p>
+						<ul>
+							<li>
+								<div class="row">
+									<div class="col-md-5 col-xs-12">
+										<label for="orgQty">Quantity in your recipe:</label>
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<input type="text" id="orgQty" class="input-lg qty" placeholder="eg. 4" required>
+									</div>
+									<div class="col-md-5 col-xs-12"></div>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col-md-5 col-xs-12">
+										<label for="orgType">What type:</label>
+									</div>
+									<div class="col-md-4 col-xs-3">
+										<input type="text" id="orgType" class="input-lg" placeholder="e.g. persons">
+									</div>
+									<div class="col-md-3 col-xs-3"></div>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+						<div class="form-group well">
+						<h2><div class="number">3</div>Finally, tell me the serving size you need</h2>
+						<p>Remember, you can't put in a new type because I can't tell you e.g. how many grammes would be eaten by 20 persons!</p>
+						<ul>
+							<li>
+								<div class="row">
+									<div class="col-md-5 col-xs-12">
+										<label for="newQty">Quantity you need:</label>
+									</div>
+									<div class="col-md-2 col-xs-12">
+										<input type="text" id="newQty" class="input-lg qty" placeholder="eg. 6" required>
+									</div>
+									<div class="col-md-7 col-xs-12"></div>
+								</div>
+							</li>
+							<li>
+								<div class="button-group">
+									<button type="submit" class="btn btn-lg btn-success" id="crunch"><span class="glyphicon glyphicon-ok"></span> Crunch the numbers!</button>
+								</div>
+							</li>
+						</ul>
+					</div>
+					</div>
+					<div class="form-group well" id="crunched">
+						<h2><div class="number last">!</div>This is your new recipe</h2>
+						<div class="print-header">
+							<h3></h3>
+							<p>Please mind that you may have to take a new cooking length into account. That is something I cannot do for you, alas...</p>
+						</div>
+						<div class="print-text"></div>
+						<div class="button-group row">
+							<div class="col-md-5 col-xs-12">
+								<button class="btn btn-lg btn-success print" id="print"><span class="glyphicon glyphicon-print"></span> Print the new recipe</button>
+							</div>
+							<div class="col-md-3 col-xs-12 text-center">
+								<button class="btn btn-lg btn-primary save" id="save1"><span class="glyphicon glyphicon-save-file"></span> Save</button>
+							</div>
+							<div class="col-md-4 col-xs-12">
+								<button class="btn btn-lg btn-default pull-right" type="reset" id="reset"><span class="glyphicon glyphicon-trash"></span> Reset all</button>
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="col-md-4">
+				<img src="img/kitchen.jpg" class="img-responsive">
+				<div id="explain" class="extra-bottom-padding">
+					<p>This handy tool is part of my Playground - a collection of fun stuff I like to make, from jQuery games to CSS animation tests.</p>
+					<p>It consists of Bootstrap, jQuery and LESS/CSS3.</p>
+					<p><a href="http://rayhyde.nl/pf_js-en.php">Please drop in on the playground section of my portfolio site www.rayhyde.nl!</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	</div>
+	<div id="modalBck"></div>
+	<div id="modal">
+		<div class="close">&times; Close</div>
+		<p>What is the name of your recipe?</p>
+		<p>
+			<input type="text" class="input-lg" id="recipe-title">
+		</p>
+		<div class="print-header">
+			<h3></h3>
+		</div>
+		<div class="print-text"></div>
+		<div class="button-group">
+			<button class="btn btn-lg btn-success print" id="print-cont" type="submit"><span class="glyphicon glyphicon-print"></span> Print</button>
+		</div>
+	</div>
+	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="js/recipe-dist.js"></script>
+</body>
+</html>

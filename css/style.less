@@ -1,0 +1,356 @@
+body, input {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+body {
+	background: #D9D7DA url(../img/bg.jpg) repeat 0 0;
+	background-size: 20%;
+}
+h1 {
+	font-family: 'Oleo Script Swash Caps', cursive;
+	font-size: 72px;
+	color: #8F3434; 
+	-webkit-text-shadow: 5px 5px 0px #FDE34D;
+	-moz-text-shadow: 5px 5px 0px #FDE34D;
+	-ms-text-shadow: 5px 5px 0px #FDE34D;
+	-o-text-shadow: 5px 5px 0px #FDE34D;
+	text-shadow: 5px 5px 0px #FDE34D;
+	margin-bottom: 30px;
+	padding-left: 20%;
+	padding-left: 20%;
+}
+h2,h3 {
+	font-family: 'Alegreya Sans', sans-serif;
+	color: #324C1F;
+	position: relative;
+}
+h2 {
+	padding-left: 30px;
+	margin-top: 5px;
+	padding-top: 10px;
+}
+.well {
+	padding-top: 0;
+}
+.del {
+	color: tomato;
+}
+.number {
+	position: absolute;
+	left: -30px;
+	top: -10px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	font-family:  'Oleo Script Swash Caps', cursive;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	text-align: center;	
+	font-size: 36px;
+	color: #F0E5D7; 
+	-webkit-text-shadow: 2px 2px 0px #295882;
+	-moz-text-shadow: 2px 2px 0px #295882;
+	-ms-text-shadow: 2px 52x 0px #295882;
+	-o-text-shadow: 2px 2px 0px #295882;
+	text-shadow: 2px 2px 0px #295882;
+	background: #90ACCA;
+	&.last {
+		background: #77A577;
+		-webkit-text-shadow: 2px 2px 0px darkgreen;
+		-moz-text-shadow: 2px 2px 0px darkgreen;
+		-ms-text-shadow: 2px 52x 0px darkgreen;
+		-o-text-shadow: 2px 2px 0px darkgreen;
+		text-shadow: 2px 2px 0px darkgreen;		
+	}
+}
+.input-lg {
+	padding: 8px 12px;
+	border: 0 none !important;
+	-webkit-box-shadow: 3px 3px 5px rgba(0,0,0,0.3) inset;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.3) inset;
+}
+.btn {
+	transition: 0.3s all;
+}
+.container {
+	background-color: #F0E5D7;
+	background: rgba(240,229,215, 0.7) url(../img/oh-my.png) 0 0 no-repeat;
+	background-size: 20% auto;
+}
+.btn-success {
+	background: darken(#8AAD92, 10%);
+	border: darken(#8AAD92, 20%);
+	&:hover {
+		background: #8AAD92;
+	}
+}
+.btn-primary {
+	background: #295882;
+	border: darken(#295882, 10%);
+	&:hover {
+		background: lighten(#295882, 10%);
+	}
+}
+form,
+#modal {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		li {
+			padding: 0;
+			.qty,
+			.qty-head {
+				text-align: right;
+			}
+		}
+	}
+	.button-group {
+		[class^=btn] {
+			margin-top: 20px;			
+		}
+	} 
+	#ingredients,
+	.print-text {
+		ul {
+			padding: 0 0 0 0.5em;
+		}
+		[class^=col-] {
+			padding-left: 5px;
+			padding-right: 5px;
+			input {
+				width: 100%;
+				border: solid 1px #ccc;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				-ms-border-radius: 3px;
+				-o-border-radius: 3px;
+				border-radius: 3px;
+				height: 30px;
+				line-height: 30px;
+				padding: 0 5px;
+			}
+		}
+	}
+}
+
+#cruncher {
+	.qty {
+		text-align: left;
+	}
+	.col-md-2 {
+		input {
+			max-width: 78px;
+		}
+	}
+	.col-md-3 {
+		input {
+			max-width: 185px;
+		}
+	}
+	input {
+//		width: 100%;
+	}
+	li {
+		margin-bottom: 10px;
+	}
+}
+#modalBck {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.8);
+}
+
+#modal {
+	width: 600px;
+	margin-left: -300px;
+	left: 50%;
+	top: 20%;
+	background: #D9D7DA;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	position: fixed;
+	padding: 20px;
+	-webkit-box-shadow: 0 0 20px #000;
+	-moz-box-shadow: 0 0 20px #000;
+	-ms-box-shadow: 0 0 20px #000;
+	-o-box-shadow: 0 0 20px #000;
+	box-shadow: 0 0 20px #000;
+	.close {
+		-webkit-opacity: 0.3;
+		-moz-opacity: 0.3;
+		-ms-opacity: 0.3;
+		-o-opacity: 0.3;
+		opacity: 0.3;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		li {
+			margin: 0;
+			padding: 0;
+		}
+	}
+	#recipe-title {
+		font-family: 'Roboto Slab', sans-serif;
+		padding: 5px;
+		font-size: 24px;
+	}
+	.print-text {
+		margin-bottom: 20px;
+	}
+	li {
+		text-align: left;
+		border-bottom: solid 1px #888;
+		input {
+			border: 0 none;
+			background: #D9D7DA;
+		}
+	}
+}
+#crunch {
+	display: none;
+}
+#modal,
+#modalBck,
+#crunched {
+	-webkit-transition: 0.3s all;
+	-o-transition: 0.3s all;
+	transition: 0.3s all;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	-ms-opacity: 0;
+	-o-opacity: 0;
+	opacity: 0;
+	visibility: hidden;
+	display: none;
+	&.active {
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-ms-opacity: 1;
+		-o-opacity: 1;
+		opacity: 1;
+		visibility: visible;
+		display: block;
+	}	
+}
+#crunched {
+	.print-text {
+		li {
+			border-bottom: solid 1px #ccc;			
+			::-webkit-input-placeholder { 
+				color: transparent;
+			}
+			:-moz-placeholder { 
+					color: transparent;
+			}
+			::-moz-placeholder { 
+					color: transparent;
+			}
+			:-ms-input-placeholder {
+					color: transparent;
+			}
+		}
+		input {
+			border: 0 none;
+			background: transparent;
+		}
+	}
+}
+img {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+}
+#explain { 
+	background: #8F3434 url("http://rayhyde.nl/playground/img/playground.png") no-repeat 98% bottom / 150px auto;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	color: #fff;
+	margin: 30px 0;
+	min-height: 160px;
+	padding: 20px;
+	&.extra-bottom-padding {
+		padding-bottom: 140px;
+	}
+	> p {
+		line-height: 150%;
+		&.extra-padding {
+			padding-right: 160px;
+		}
+	}
+	h2 {
+		margin: 0 0 10px;
+	}
+	a {
+		border-bottom: 1px solid #fff;
+		color: #fff;
+		text-decoration: none;
+		-webkit-transition: 0.3s all;
+		-o-transition: 0.3s all;
+		transition: 0.3s all;
+		&:hover {
+			border-color: transparent;
+			text-decoration: none;
+		}
+	}
+}
+
+@media print {
+	.container,
+	.btn,
+	.close,
+	#modalBck,
+	.modal-intro {
+		display: none;
+	}
+	#modal {
+		padding: 0 !important;
+		position: relative;
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		-webkit-border-radius: 0 !important;
+		-moz-border-radius: 0 !important;
+		-ms-border-radius: 0 !important;
+		-o-border-radius: 0 !important;
+		border-radius: 0 !important;
+		background: #fff !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+		li {
+			border-bottom: solid 1px #e0e0e0 !important;
+		}
+		input { 
+			border: 0 none;
+			padding: 0;
+		}
+		::-webkit-input-placeholder { 
+      color: transparent;
+		}
+		:-moz-placeholder { 
+				color: transparent;
+		}
+		::-moz-placeholder { 
+				color: transparent;
+		}
+		:-ms-input-placeholder {
+				color: transparent;
+		}
+	}
+}
