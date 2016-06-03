@@ -1,10 +1,4 @@
-<style>
-	.markdown-body.entry-content {
-		background: #d9d7da url("http://rayhyde.nl/playground/recipe/img/bg.jpg") repeat scroll 0 0 / 20% auto
-	}
-</style>
-
-<h3>Recipe Calculator</h3>
+<h3 color="tomato">Recipe Calculator</h3>
 
 <p>This handy calculator recalculates your recipe to a new size of cake tin or other number of persons. <br><br>
 
