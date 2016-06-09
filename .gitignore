@@ -3,5 +3,10 @@
 # Example .gitignore files: https://github.com/github/gitignore
 /bower_components/
 /node_modules/
+<<<<<<< HEAD
 _design
 prepros.cfg
+=======
+prepros.cfg
+_design/
+>>>>>>> 7e14b7efd7ecc63cf4928114c3298bf437113920
