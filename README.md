@@ -13,4 +13,3 @@ It has a fun retro look, is responsive and the index.html automatically redirect
 <p>This project is part of my Playground - a collection of fun (and dare I say it: clever) stuff I made in the past, from jQuery games and plugins to CSS animation tricks.</p>
 
 <p>Please drop in on my portfolio site <a href="http://www.rayhyde.nl">www.rayhyde.nl</a>!</p>
-</article>
